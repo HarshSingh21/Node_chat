@@ -12,6 +12,13 @@ const addUser = ({ id, username, room }) => {
     };
   }
 
+  // Check if username is a number
+  if (!isNaN(username)) {
+    return {
+      error: "Username cannot be a number!"
+    };
+  }
+
   // Check for existing user
   const existingUser = users.find(user => {
     return user.room === room && user.username === username;
